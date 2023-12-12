@@ -19,13 +19,13 @@ jobs:
       run: echo "$DOCKER_ACCESS_TOKEN" | docker login --username "$DOCKER_USERNAME" --password-stdin
 
     - name: Build the Client Docker image
-      run: docker build . --file Client/Dockerfile --tag mwajoe/me:extrasize_client
+      run: docker build . --file Client/Dockerfile --tag wesleynyandika/homerepo:extrasize_client
 
     - name: Build the Server Docker image
-      run: docker build . --file Server/Dockerfile --tag mwajoe/me:extrasize_server
+      run: docker build . --file Server/Dockerfile --tag wesleynyandika/homerepo:extrasize_server
 
     - name: Push Client to Dockerhub
-      run: docker push mwajoe/me:extrasize_client
+      run: docker push wesleynyandika/homerepo:extrasize_client
 
     - name: Push Server to Dockerhub
-      run: docker push mwajoe/me:extrasize_server
+      run: docker push wesleynyandika/homerepo:extrasize_server

@@ -1,0 +1,51 @@
+{
+	"name": "workoutapp",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite --host",
+		"build": "vite build",
+		"lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+		"preview": "vite preview"
+	},
+	"dependencies": {
+		"@dump-work/react-google-login": "^6.0.14",
+		"@emotion/react": "^11.11.1",
+		"@emotion/styled": "^11.11.0",
+		"@mui/material": "^5.14.4",
+		"@mui/styled-engine-sc": "^5.12.0",
+		"@mui/x-data-grid": "^6.10.2",
+		"@react-google-maps/api": "^2.19.2",
+		"@react-oauth/google": "^0.11.1",
+		"@vis.gl/react-google-maps": "^0.3.2",
+		"antd": "^5.6.1",
+		"axios": "^1.4.0",
+		"ejs": "^3.1.9",
+		"framer-motion": "^10.15.0",
+		"google-map-react": "^2.2.1",
+		"oauth": "^0.10.0",
+		"react": "^18.2.0",
+		"react-calendar": "^4.6.1",
+		"react-dom": "^18.2.0",
+		"react-google-login": "^5.2.2",
+		"react-icons": "^4.10.1",
+		"react-loading-skeleton": "^3.3.1",
+		"react-router-dom": "^6.11.1",
+		"react-router-use-history": "^1.1.0",
+		"styled-components": "^5.3.11"
+	},
+	"devDependencies": {
+		"@types/react": "^18.2.15",
+		"@types/react-dom": "^18.2.7",
+		"@vitejs/plugin-react": "^4.0.3",
+		"autoprefixer": "^10.4.16",
+		"eslint": "^8.45.0",
+		"eslint-plugin-react": "^7.32.2",
+		"eslint-plugin-react-hooks": "^4.6.0",
+		"eslint-plugin-react-refresh": "^0.4.3",
+		"postcss": "^8.4.31",
+		"tailwindcss": "^3.3.5",
+		"vite": "^4.4.5"
+	}
+}

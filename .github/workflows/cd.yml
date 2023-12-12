@@ -1,0 +1,37 @@
+name: CD Pipeline
+
+on:
+  workflow_run:
+    workflows: ["CI Pipeline"]
+    types: 
+      - completed
+
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - name: Login Dockerhub
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_ACCESS_TOKEN: ${{ secrets.DOCKER_ACCESS_TOKEN }}
+        run: echo "$DOCKER_ACCESS_TOKEN" | docker login --username "$DOCKER_USERNAME" --password-stdin
+
+      - name: Prune orphan images
+        run: yes | sudo docker image prune -a
+      - name: Pull Server Image
+        run: sudo docker pull mwajoe/me:extrasize_server
+      - name: Pull Client Image
+        run: sudo docker pull mwajoe/me:extrasize_client
+      - name: Delete Old Server container
+        run: sudo docker rm -f extrasize_server || true
+      - name: Delete Old Client container
+        run: sudo docker rm -f extrasize_client || true
+      - name: Run new Server container
+        run: sudo docker run -d -p 8000:8000 --name extrasize_server mwajoe/me:extrasize_server
+      - name: Run new Client container
+        run: sudo docker run -d -p 5173:5173 --name extrasize_client mwajoe/me:extrasize_client
+      - name: Route port 80 to extrasize_client
+        run: sudo nohup socat TCP4-LISTEN:80,fork,reuseaddr TCP4:localhost:5173 &
+        # the command on line 34 exposes the running node application on port 80; if you want to expose it to port 443, 
+        # this is another task involving securing the application with an ssl certificate from a commercial certificate 
+        # authority. the certificate needs to be bought

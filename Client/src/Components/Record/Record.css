@@ -1,0 +1,36 @@
+.Record {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.RecordLeft,
+.RecordRight {
+    height: 100%;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 5px;
+
+    & h3 {
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    & p {
+        font-size: .8rem;
+        font-weight: 500;
+    }
+
+    & small{
+        font-size: .7rem;
+        font-weight: 500;
+    }
+}
+
+.FormBtns{
+    width: 90%;
+    flex-direction: row;
+    justify-content: space-between;
+}

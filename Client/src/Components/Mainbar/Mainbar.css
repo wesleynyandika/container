@@ -1,0 +1,51 @@
+.Header {
+    width: 100%;
+    height: auto;
+    box-shadow: var(--boxShadow);
+    background: var(--Background-paper);
+    align-items: flex-end;
+    padding: .3rem;
+
+    & .User {
+
+        & .Avatar {
+            width: 2.5rem;
+            height: 2, 5rem;
+
+            & img {
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+            }
+        }
+
+        & .Name {
+            font-size: 1rem;
+            margin-left: .5rem;
+
+            & h3 {
+                font-weight: 600;
+            }
+
+            & p {
+                font-size: .8rem;
+                color: var(--p-color);
+            }
+        }
+    }
+}
+
+.MainTop,
+.MainBottom {
+    width: 100%;
+    box-shadow: var(--boxShadow);
+    padding: .5rem;
+}
+
+.MainTop {
+    height: 80%;
+}
+
+.MainBottom {
+    height: 100vh;
+}
